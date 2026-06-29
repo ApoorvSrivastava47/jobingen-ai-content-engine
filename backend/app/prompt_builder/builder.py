@@ -15,15 +15,15 @@ class PromptBuilder:
     def build(
         self,
         system_prompt: str,
-        strategy: dict,
+        context: dict,
     ):
 
-        context = self.context.build(strategy)
+        context_text = self.context.build(context)
 
         instructions = self.instructions.build()
 
         user_prompt = self.formatter.format(
-            context=context,
+            context=context_text,
             instructions=instructions,
         )
 

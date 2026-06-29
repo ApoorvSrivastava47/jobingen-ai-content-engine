@@ -1,18 +1,9 @@
-from openai import OpenAI
+from ollama import chat
 
-from app.config.settings import settings
 from app.clients.base_client import BaseAIClient
 
 
-class OpenAIClient(BaseAIClient):
-    def __init__(self):
-
-        self.client = OpenAI(
-            api_key=settings.OPENAI_API_KEY,
-        )
-
-        self.model = settings.OPENAI_MODEL
-
+class LlamaClient(BaseAIClient):
     def generate(
         self,
         system_prompt: str,
@@ -20,9 +11,8 @@ class OpenAIClient(BaseAIClient):
         temperature: float = 0.7,
     ) -> str:
 
-        response = self.client.chat.completions.create(
-            model=self.model,
-            temperature=temperature,
+        response = chat(
+            model="llama3.2",
             messages=[
                 {
                     "role": "system",
@@ -35,4 +25,4 @@ class OpenAIClient(BaseAIClient):
             ],
         )
 
-        return response.choices[0].message.content
+        return response["message"]["content"]

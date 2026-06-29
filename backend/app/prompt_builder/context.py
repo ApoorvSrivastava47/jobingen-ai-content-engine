@@ -1,19 +1,14 @@
 class ContextBuilder:
-    def build(self, strategy: dict) -> str:
+    def build(
+        self,
+        context: dict,
+    ) -> str:
 
-        return f"""
-Topic:
-{strategy["topic"]}
+        lines = []
 
-Content Pillar:
-{strategy["pillar"]}
+        for key, value in context.items():
+            title = key.replace("_", " ").title()
 
-Content Goal:
-{strategy["goal"]}
+            lines.append(f"{title}:\n{value}")
 
-Tone:
-{strategy["tone"]}
-
-Template:
-{strategy["template"]}
-"""
+        return "\n\n".join(lines)

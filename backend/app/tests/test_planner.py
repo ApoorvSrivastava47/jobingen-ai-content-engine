@@ -1,18 +1,15 @@
-from app.engine.planner import Planner
+from pprint import pprint
 
+from app.workflow.content_workflow import ContentWorkflow
 
-def main():
+workflow = ContentWorkflow()
 
-    planner = Planner()
+result = workflow.execute("AI Resume Building Tips")
 
-    response = planner.generate_plan("AI Resume Building Tips")
+print()
 
-    print("=" * 60)
-    print("PLANNER RESPONSE")
-    print("=" * 60)
+print("=" * 60)
+print("CONTENT WORKFLOW")
+print("=" * 60)
 
-    print(response)
-
-
-if __name__ == "__main__":
-    main()
+pprint(result)
