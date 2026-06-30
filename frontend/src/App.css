@@ -1,15 +1,40 @@
-body {
-  margin: 0;
-  background: #f5f8ff;
-  font-family: Inter, Arial, sans-serif;
+body{
+
+margin:0;
+
+font-family:Inter,Arial,sans-serif;
+
+background:
+radial-gradient(circle at top left,#dbeafe 0%,transparent 30%),
+radial-gradient(circle at bottom right,#bfdbfe 0%,transparent 30%),
+#f8fbff;
+
 }
 
-* {
-  box-sizing: border-box;
+*{
+
+box-sizing:border-box;
+
 }
 
-#root {
-  max-width: 1200px;
-  margin: auto;
-  padding: 40px;
+.top-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:25px;
+
+margin-bottom:30px;
+
+}
+
+@media(max-width:900px){
+
+.top-grid{
+
+grid-template-columns:1fr;
+
+}
+
 }

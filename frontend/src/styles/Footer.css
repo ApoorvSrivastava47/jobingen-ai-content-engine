@@ -1,0 +1,55 @@
+.footer{
+
+margin-top:70px;
+
+padding:45px 20px;
+
+text-align:center;
+
+color:var(--muted);
+
+border-top:1px solid rgba(0,0,0,.08);
+
+}
+
+.footer h3{
+
+color:var(--primary);
+
+margin-bottom:18px;
+
+font-size:26px;
+
+}
+
+.footer p{
+
+margin:10px 0;
+
+line-height:1.8;
+
+}
+
+.footer strong{
+
+color:var(--text);
+
+}
+
+.developer{
+
+font-size:17px;
+
+font-weight:600;
+
+}
+
+.copyright{
+
+font-size:14px;
+
+opacity:.7;
+
+margin-top:15px;
+
+}

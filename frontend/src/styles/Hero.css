@@ -1,19 +1,209 @@
 .hero {
-  background: linear-gradient(135deg, #eaf3ff, #d7e8ff);
-  padding: 60px 40px;
-  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+  border-radius: 28px;
+
+  padding: 70px 50px;
+
+  color: white;
+
   text-align: center;
-  margin-bottom: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  box-shadow: 0 20px 50px rgba(37, 99, 235, .25);
+
+  margin-bottom: 45px;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  color: #1e3a8a;
-  margin-bottom: 15px;
+/* Floating Background */
+
+.hero::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+
+  height: 320px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.08);
+
+  top: -120px;
+
+  right: -80px;
+
+  filter: blur(20px);
 }
 
-.hero p {
-  color: #475569;
-  font-size: 1.1rem;
+.hero::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+
+  height: 220px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.08);
+
+  bottom: -70px;
+
+  left: -60px;
+
+  filter: blur(15px);
+
+}
+
+.hero>*{
+
+  position:relative;
+
+  z-index:2;
+
+}
+
+/* Badge */
+
+.badge{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:10px 20px;
+
+border-radius:50px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(12px);
+
+font-weight:600;
+
+font-size:15px;
+
+margin-bottom:25px;
+
+}
+
+/* Heading */
+
+.hero h1{
+
+font-size:4rem;
+
+font-weight:800;
+
+letter-spacing:-2px;
+
+margin-bottom:18px;
+
+}
+
+/* Description */
+
+.hero p{
+
+max-width:760px;
+
+margin:auto;
+
+font-size:1.15rem;
+
+line-height:1.8;
+
+opacity:.95;
+
+}
+
+/* Workflow Chips */
+
+.chips{
+
+margin-top:38px;
+
+display:flex;
+
+justify-content:center;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+}
+
+.chip{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:12px 22px;
+
+background:white;
+
+color:#2563eb;
+
+border-radius:50px;
+
+font-weight:700;
+
+transition:.25s;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.chip:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 16px 35px rgba(0,0,0,.15);
+
+}
+
+.chip svg{
+
+font-size:18px;
+
+}
+
+.version-badge{
+
+position:absolute;
+
+top:22px;
+
+right:22px;
+
+padding:10px 18px;
+
+border-radius:14px;
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(10px);
+
+font-size:13px;
+
+font-weight:700;
+
+text-align:center;
+
+color:white;
+
+z-index:10;
+
 }

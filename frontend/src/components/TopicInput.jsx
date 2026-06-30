@@ -2,8 +2,9 @@ import { useState } from "react";
 import "../styles/TopicInput.css";
 import { generateContent } from "../services/api";
 
-function TopicInput() {
+function TopicInput({ onGenerate }) {
   const [topic, setTopic] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function handleGenerate() {
     if (!topic.trim()) {
@@ -12,34 +13,61 @@ function TopicInput() {
     }
 
     try {
+      setLoading(true);
+
       const result = await generateContent(topic);
 
-      console.log(result);
+      onGenerate(result);
 
-      alert("Content generated successfully!");
+
+      setTimeout(() => {
+
+          window.scrollTo({
+
+          top:700,
+
+          behavior:"smooth"
+
+          });
+
+          },300);
+
     } catch (error) {
       console.error(error);
-
       alert("Failed to generate content.");
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
-    <div className="topic-container">
-      <input
-        className="topic-input"
-        type="text"
-        placeholder="Enter any topic..."
-        value={topic}
-        onChange={(e) => setTopic(e.target.value)}
-      />
+    <div className="topic-wrapper">
+      <div className="topic-box">
 
-      <button
-        className="generate-btn"
-        onClick={handleGenerate}
-      >
-        🚀 Generate
-      </button>
+        <input
+          
+          className="topic-input"
+          autoFocus
+          type="text"
+          placeholder="Enter any content topic..."
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleGenerate();
+            }
+          }}
+        />
+
+        <button
+          className="generate-btn"
+          onClick={handleGenerate}
+          disabled={loading}
+        >
+          {loading ? "Generating..." : "🚀 Generate"}
+        </button>
+
+      </div>
     </div>
   );
 }

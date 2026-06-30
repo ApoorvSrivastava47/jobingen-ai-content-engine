@@ -1,67 +1,88 @@
-# 🚀 JobInGen AI Engine
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![React](https://img.shields.io/badge/React-Frontend-61dafb)
+![Ollama](https://img.shields.io/badge/Ollama-LLM-orange)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
-> A modular Multi-Agent AI Content Generation System built for scalable, high-quality content creation.
+# 🚀 JobInGen's Intelligent Content Engine — ORCA
+
+> **Enterprise Multi-Agent AI Content Intelligence Platform**
+
+<p align="center">
+<img src="docs/images/orca-ui.png" width="100%">
+</p>
 
 ---
 
-## 📖 Overview
+# 📖 Overview
 
-JobInGen AI Engine is an AI-powered backend designed around a **Multi-Agent Architecture**.
+ORCA is an enterprise-grade **Multi-Agent AI Content Intelligence Platform** developed as part of the JobInGen AI Hackathon.
 
-Instead of asking a single LLM to generate content directly, the system separates the complete workflow into specialized AI agents.
+Unlike traditional AI applications that rely on a single prompt, ORCA orchestrates multiple specialized AI agents responsible for planning, writing, reviewing, and refining content before producing the final response.
 
-Each agent performs one responsibility:
+The platform follows a modular, provider-independent architecture, making it scalable, maintainable, and easy to extend with future AI providers.
 
-- Plan the content
-- Generate the draft
-- Review the quality
-- Decide whether regeneration is required
+---
 
-This architecture makes the system:
+# 🎯 Problem Statement
 
-- Modular
-- Maintainable
-- Easy to extend
-- Provider independent (Ollama, Gemini, OpenAI)
+Traditional AI content generation systems rely on a single prompt, often producing inconsistent outputs that are difficult to control and improve.
+
+ORCA addresses this challenge by orchestrating specialized AI agents that independently plan, generate, review, and refine content before delivering the final response.
 
 ---
 
 # ✨ Features
 
-- 🤖 Multi-Agent Architecture
-- 🧠 Planner Agent
-- ✍️ Copywriter Agent
-- 🔍 Critic Agent
-- 🔄 Automatic Rewrite Loop
-- 📝 Prompt Engineering Pipeline
-- 🎭 Persona-based Prompt Loading
-- 🏗 Modular AI Provider Layer
-- ⚙️ Configuration Driven
-- 🔌 Easy LLM Provider Switching
-- 📂 Clean Project Structure
+- 🤖 Multi-Agent AI Architecture
+- 🧠 Intelligent Planning Agent
+- ✍️ AI Copywriter Agent
+- 🔍 AI Critic & Quality Evaluation
+- 🔄 Automatic Rewrite Workflow
+- 🎭 Persona-driven Prompt Engineering
+- 📝 Modular Prompt Builder
+- ⚙️ Provider Independent AI Layer
+- 🦙 Ollama + Llama 3.2 Integration
+- ⚡ FastAPI REST API
+- 🌐 Modern React Frontend
+- 📋 Copy Generated Content
+- 📥 Download Generated Content
+- 📄 Markdown Rendering
+- 📂 Clean Modular Architecture
 
 ---
 
-# 🏗 System Architecture
+# 🏗️ System Architecture
 
-```
+```text
                     User
                       │
                       ▼
-              Content Workflow
+             React Frontend (Vite)
                       │
-        ┌─────────────┼─────────────┐
-        ▼             ▼             ▼
-    Planner      Copywriter      Critic
-        │             │             │
-        └─────────────┼─────────────┘
                       ▼
-               Review Parser
+              FastAPI REST API
                       │
-             Rewrite Required?
-               │            │
-               ▼            ▼
-          Publish      Rewrite Draft
+                      ▼
+           Content Workflow Manager
+                      │
+      ┌──────────┬───────────┬──────────┐
+      ▼          ▼           ▼          ▼
+  Planner   Copywriter    Critic   Review Parser
+      │          │           │          │
+      └──────────┴───────────┴──────────┘
+                      │
+                      ▼
+                 AI Service
+                      │
+                      ▼
+             AI Client Factory
+                      │
+                      ▼
+             Ollama / Llama 3.2
+                      │
+                      ▼
+               Final AI Response
 ```
 
 ---
@@ -70,7 +91,7 @@ This architecture makes the system:
 
 ## 🧠 Planner Agent
 
-Responsible for planning the content strategy.
+Responsible for planning the complete content strategy.
 
 Outputs:
 
@@ -94,14 +115,12 @@ Generates high-quality content using:
 
 ## 🔍 Critic Agent
 
-Evaluates generated content.
-
-Checks:
+Evaluates generated content based on:
 
 - Brand Voice
-- Hook
-- Value
-- CTA
+- Hook Quality
+- Value Density
+- Call-to-Action
 - Grammar
 - Formatting
 
@@ -109,56 +128,64 @@ Checks:
 
 ## 🔄 Review Parser
 
-Reads critic feedback.
-
-Decides:
+Reads critic feedback and decides whether to:
 
 - Publish
 - Rewrite
 
-without exposing that logic to the workflow.
+without exposing that decision logic to the workflow.
 
 ---
 
-# ⚙ Workflow
+# ⚙️ Workflow
 
-```
+```text
 User Topic
 
-↓
+      │
 
-Planner
+      ▼
 
-↓
+ Planner
 
-Strategy
+      │
 
-↓
+      ▼
 
-Copywriter
+ Strategy
 
-↓
+      │
 
-Content
+      ▼
 
-↓
+ Copywriter
 
-Critic
+      │
 
-↓
+      ▼
 
-Review Parser
+ Content
 
-↓
+      │
 
-Publish
-or
-Rewrite
+      ▼
+
+ Critic
+
+      │
+
+      ▼
+
+ Review Parser
+
+      │
+
+ Publish or Rewrite
 ```
 
 ---
 
-# 🏛 Human Analogy
+# 🏛️ Human Analogy
 
 | Software Component | Human Equivalent |
 |--------------------|------------------|
@@ -172,38 +199,41 @@ Rewrite
 | PersonaLoader | Company Library |
 | PromptBuilder | Document Composer |
 
-
-
-
-
-
-
-
-
 ---
 
 # 📂 Project Structure
 
 ```text
-backend/
-│
-├── app/
-│   ├── agents/
-│   ├── clients/
-│   ├── config/
-│   ├── core/
-│   ├── critic/
-│   ├── persona/
-│   ├── prompt_builder/
-│   ├── utils/
-│   ├── workflow/
-│   └── tests/
-│
-├── prompts/
-├── outputs/
-├── logs/
-├── data/
-└── .env
+jobingen-ai-engine/
+
+├── backend/
+│   ├── app/
+│   │   ├── agents/
+│   │   ├── api/
+│   │   ├── clients/
+│   │   ├── config/
+│   │   ├── core/
+│   │   ├── critic/
+│   │   ├── persona/
+│   │   ├── prompt_builder/
+│   │   ├── workflow/
+│   │   ├── utils/
+│   │   └── tests/
+│   ├── prompts/
+│   ├── outputs/
+│   ├── logs/
+│   └── .env
+
+├── frontend/
+│   └── src/
+│       ├── components/
+│       ├── layout/
+│       ├── services/
+│       ├── styles/
+│       ├── App.jsx
+│       └── main.jsx
+
+└── README.md
 ```
 
 ---
@@ -216,41 +246,35 @@ Clone the repository
 git clone https://github.com/ApoorvSrivastava47/jobingen-ai-content-engine.git
 ```
 
-Move into the backend
+### Backend
 
 ```bash
 cd backend
-```
 
-Install dependencies
-
-```bash
 pip install -r requirements.txt
-```
 
-Start Ollama
-
-```bash
 ollama serve
-```
 
-Pull the model
-
-```bash
 ollama pull llama3.2
+
+uvicorn app.main:app --reload
 ```
 
-Run the workflow
+### Frontend
 
 ```bash
-python -m app.tests.test_planner
+cd frontend
+
+npm install
+
+npm run dev
 ```
 
 ---
 
-# ▶ Example Workflow
+# ▶️ Example Workflow
 
-```
+```text
 Topic
 
 ↓
@@ -275,10 +299,6 @@ Critic
 
 ↓
 
-Review
-
-↓
-
 Review Parser
 
 ↓
@@ -292,64 +312,125 @@ Rewrite
 
 # 💻 Tech Stack
 
+## Frontend
+
+- React
+- Vite
+- React Markdown
+- React Icons
+- CSS3
+
+## Backend
+
+- FastAPI
 - Python
-- Ollama
-- LLM Provider (Currently Ollama + Llama 3.2)
+- Pydantic
 - Loguru
-- PyYAML
-- Markdown
-- Git
-- Object-Oriented Programming
+
+## AI
+
+- Ollama
+- Llama 3.2
+
+## Software Engineering
+
+- Multi-Agent Architecture
 - Prompt Engineering
+- Object-Oriented Programming
+- Workflow Orchestration
 
 ---
 
 # 🎯 Why Multi-Agent?
 
-Instead of relying on a single prompt, the system separates planning,
-content generation,
-quality evaluation,
-and orchestration into independent AI agents.
+Instead of relying on a single prompt, ORCA separates planning, content generation, quality evaluation, and orchestration into independent AI agents.
 
 Benefits:
 
 - Better maintainability
 - Easier debugging
 - Reusable agents
-- Model independence
+- Provider independence
 - Cleaner architecture
+- Improved content quality
 
 ---
 
 # 🚀 Future Scope
 
 - OpenAI Integration
-- Gemini Integration
-- Claude Integration
-- Streaming Responses
-- FastAPI Backend
-- React Frontend
+- Google Gemini Integration
+- Anthropic Claude Integration
 - Docker Deployment
-- Authentication
-- Analytics Dashboard
-- Human Feedback Loop
+- Authentication & User Accounts
+- Content History
+- Team Workspace
+- Agent Analytics Dashboard
 - Multi-language Content Generation
+- Real-time Streaming Responses
 
 ---
 
+---
+
+# 📸 Screenshots
+
+## 🏠 Home
+
+<p align="center">
+<img src="docs/images/orca-home.png" width="100%">
+</p>
+
+---
+
+## ⚙️ Multi-Agent Workflow
+
+<p align="center">
+<img src="docs/images/workflow.png" width="100%">
+</p>
+
+---
+
+## ✍️ AI Generated Content
+
+<p align="center">
+<img src="docs/images/content.png" width="100%">
+</p>
+
+---
+
+## 🔍 AI Quality Review
+
+<p align="center">
+<img src="docs/images/review.png" width="100%">
+</p>
+
 # 👨‍💻 Author
 
-**Apoorv Srivastava**
+## Apoorv Srivastava
 
-AI & ML Engineer
+**B.Tech Computer Science & Engineering (AI & ML)**
+
+Designed and Developed for the **JobInGen AI Hackathon**
 
 GitHub:
 https://github.com/ApoorvSrivastava47
 
 ---
 
+# 📜 License
+
+This project is intended for educational, research, and hackathon purposes.
+
+© 2026 Apoorv Srivastava. All rights reserved.
+
+---
+
 # ⭐ Acknowledgements
 
-Developed as part of the JobInGen AI Content Engine Hackathon.
+Developed as part of the **JobInGen AI Hackathon**.
 
-Built using a modular Multi-Agent AI architecture with provider-independent design.
+Built using a modular **Multi-Agent AI Architecture** with provider-independent design principles.
+
+
+
