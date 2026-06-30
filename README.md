@@ -6,11 +6,10 @@
 
 # 🚀 JobInGen's Intelligent Content Engine — ORCA
 
-> **Enterprise Multi-Agent AI Content Intelligence Platform**
-
 <p align="center">
-<img src="docs/images/orca-ui.png" width="100%">
+<img src="docs/images/orca-home.png" width="100%">
 </p>
+> **Enterprise Multi-Agent AI Content Intelligence Platform**
 
 ---
 
@@ -377,9 +376,6 @@ Benefits:
 
 ## 🏠 Home
 
-<p align="center">
-<img src="docs/images/orca-home.png" width="100%">
-</p>
 
 ---
 
