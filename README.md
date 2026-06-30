@@ -6,9 +6,7 @@
 
 # 🚀 JobInGen's Intelligent Content Engine — ORCA
 
-<p align="center">
-<img src="docs/images/orca-home.png" width="100%">
-</p>
+
 > **Enterprise Multi-Agent AI Content Intelligence Platform**
 
 ---
