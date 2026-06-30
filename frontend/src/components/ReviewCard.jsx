@@ -1,36 +1,38 @@
-import { FaClipboardCheck } from "react-icons/fa";
 import ReactMarkdown from "react-markdown";
+
+import { FaClipboardCheck } from "react-icons/fa";
+
 import "../styles/Card.css";
 
 function ReviewCard({ review }) {
 
-    if (!review) return null;
+  if (!review) return null;
 
-    return (
+  return (
 
-        <section className="card">
+    <section className="card">
 
-            <h2>
+      <h2>
 
-                <FaClipboardCheck />
+        <FaClipboardCheck />
 
-                AI Quality Review
+        AI Quality Review
 
-            </h2>
+      </h2>
 
-            <div className="markdown-body">
+      <div className="markdown-body">
 
-                <ReactMarkdown>
+        <ReactMarkdown>
 
-                    {review}
+          {review}
 
-                </ReactMarkdown>
+        </ReactMarkdown>
 
-            </div>
+      </div>
 
-        </section>
+    </section>
 
-    );
+  );
 
 }
 

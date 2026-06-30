@@ -1,9 +1,13 @@
 .layout{
 
-    max-width:1200px;
+width:min(1400px,94%);
 
-    margin:auto;
+margin:auto;
 
-    padding:40px 25px 80px;
+padding:40px 0 80px;
+
+position:relative;
+
+z-index:2;
 
 }

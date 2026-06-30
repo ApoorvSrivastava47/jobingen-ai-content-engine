@@ -1,50 +1,45 @@
+import { FaBrain, FaMagic, FaBolt } from "react-icons/fa";
 import "../styles/Hero.css";
-import { FaRobot } from "react-icons/fa";
 
 function Hero() {
   return (
     <section className="hero">
-      <div className="version-badge">
 
-          v1.0
-
-          <br/>
-
-          by Apoorv
-
-      </div>
-
-      <div className="badge">
-
-        <FaRobot />
-
-        Multi-Agent AI Platform
-
+      <div className="hero-badge">
+        <span className="status-dot"></span>
+        Enterprise Multi-Agent AI Platform
       </div>
 
       <h1>
-
-        JobInGen's AI Content Generator
-        "ORCA"
-
+        JobInGen's
+        <br />
+        <span>Intelligent Content Engine</span>
       </h1>
 
+      <h2>ORCA</h2>
+
       <p>
-
-        Intelligent content generation powered by
-        Planner, Copywriter and Critic Agents.
-
+        Generate premium, high-quality content using a modular
+        Multi-Agent AI architecture powered by Planner,
+        Copywriter, Critic and Review agents.
       </p>
 
-      <div className="chips">
+      <div className="hero-tags">
 
-        <span>Planner</span>
+        <div className="hero-tag">
+          <FaBrain />
+          Planner Agent
+        </div>
 
-        <span>Copywriter</span>
+        <div className="hero-tag">
+          <FaMagic />
+          AI Copywriter
+        </div>
 
-        <span>Critic</span>
-
-        <span>Rewrite</span>
+        <div className="hero-tag">
+          <FaBolt />
+          Quality Critic
+        </div>
 
       </div>
 

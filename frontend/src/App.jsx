@@ -23,27 +23,48 @@ function App() {
 
       <Hero />
 
-      <TopicInput onGenerate={setResult} />
+      <section className="generate-section">
 
-      <div className="top-grid">
+        <TopicInput onGenerate={setResult} />
 
-        <StrategyCard strategy={result?.strategy} />
-
-        <WorkflowStatus result={result} />
-
-      </div>
+      </section>
 
       {
-        result ? (
-        <>
-        <ContentCard content={result.content}/>
 
-        <ReviewCard review={result.review}/>
-        </>
-        ):(
-        <EmptyState/>
+        result ? (
+
+          <>
+
+            <section className="dashboard-grid">
+
+              <StrategyCard strategy={result.strategy} />
+
+              <WorkflowStatus result={result} />
+
+            </section>
+
+            <section className="content-section">
+
+              <ContentCard content={result.content} />
+
+            </section>
+
+            <section className="review-section">
+
+              <ReviewCard review={result.review} />
+
+            </section>
+
+          </>
+
+        ) : (
+
+          <EmptyState />
+
         )
-        }
+
+      }
+
       <Footer />
 
     </MainLayout>

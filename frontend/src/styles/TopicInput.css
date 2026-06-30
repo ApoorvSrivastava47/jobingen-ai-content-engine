@@ -1,10 +1,10 @@
-.topic-wrapper{
+.topic-section{
 
-display:flex;
+margin-top:-45px;
 
-justify-content:center;
+position:relative;
 
-margin-top:35px;
+z-index:20;
 
 margin-bottom:45px;
 
@@ -12,31 +12,73 @@ margin-bottom:45px;
 
 .topic-box{
 
-width:900px;
-
-background:white;
-
-border-radius:20px;
-
-padding:10px;
-
 display:flex;
 
 align-items:center;
 
-gap:15px;
+gap:18px;
 
-box-shadow:0 15px 40px rgba(15,23,42,.08);
+padding:16px;
 
-transition:.3s;
+border-radius:24px;
+
+background:rgba(17,24,39,.78);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 20px 60px rgba(0,0,0,.35),
+
+0 0 40px rgba(124,58,237,.10);
+
+transition:.35s;
 
 }
 
 .topic-box:focus-within{
 
-transform:translateY(-2px);
+border-color:#7c3aed;
 
-box-shadow:0 20px 50px rgba(37,99,235,.18);
+box-shadow:
+
+0 0 0 2px rgba(124,58,237,.25),
+
+0 15px 50px rgba(124,58,237,.20);
+
+}
+
+.topic-icon{
+
+width:52px;
+
+height:52px;
+
+border-radius:16px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:linear-gradient(
+
+135deg,
+
+#7c3aed,
+
+#4f46e5
+
+);
+
+color:white;
+
+font-size:20px;
+
+flex-shrink:0;
 
 }
 
@@ -44,58 +86,98 @@ box-shadow:0 20px 50px rgba(37,99,235,.18);
 
 flex:1;
 
+background:transparent;
+
 border:none;
 
 outline:none;
 
-font-size:17px;
+font-size:1.05rem;
 
-padding:18px;
+color:white;
 
-background:transparent;
-
-color:var(--text);
+padding:10px;
 
 }
 
 .topic-input::placeholder{
 
-color:var(--muted);
+color:#94a3b8;
 
 }
 
 .generate-btn{
 
-background:var(--primary);
+padding:15px 28px;
 
 border:none;
 
+border-radius:18px;
+
+background:linear-gradient(
+
+135deg,
+
+#7c3aed,
+
+#4f46e5
+
+);
+
 color:white;
 
-padding:16px 28px;
-
-border-radius:14px;
+font-size:.95rem;
 
 font-weight:700;
 
-cursor:pointer;
+transition:.3s;
 
-transition:.25s;
+cursor:pointer;
 
 }
 
 .generate-btn:hover{
 
-background:var(--primary-dark);
+transform:translateY(-3px);
 
-transform:translateY(-2px);
+box-shadow:
+
+0 12px 30px rgba(124,58,237,.35);
 
 }
 
 .generate-btn:disabled{
 
-opacity:.6;
+opacity:.7;
 
 cursor:not-allowed;
+
+}
+
+@media(max-width:850px){
+
+.topic-box{
+
+flex-direction:column;
+
+align-items:stretch;
+
+}
+
+.topic-icon{
+
+width:100%;
+
+height:60px;
+
+border-radius:18px;
+
+}
+
+.generate-btn{
+
+width:100%;
+
+}
 
 }

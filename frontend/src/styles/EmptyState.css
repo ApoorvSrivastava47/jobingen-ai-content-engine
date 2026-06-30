@@ -1,43 +1,213 @@
-.empty-state{
+.empty-card{
 
-margin-top:35px;
+background:rgba(17,24,39,.78);
 
-background:white;
+backdrop-filter:blur(18px);
 
-padding:60px;
+border:1px solid rgba(255,255,255,.08);
 
-border-radius:22px;
+border-radius:30px;
 
-box-shadow:var(--shadow);
+padding:55px 40px;
 
 text-align:center;
 
+box-shadow:
+
+0 20px 60px rgba(0,0,0,.35),
+
+0 0 40px rgba(124,58,237,.08);
+
+transition:.35s;
+
+margin-bottom:35px;
+
 }
 
-.empty-icon{
+.empty-card:hover{
 
-font-size:55px;
+transform:translateY(-6px);
 
-color:var(--primary);
-
-margin-bottom:20px;
+border-color:#7c3aed;
 
 }
 
-.flow{
+.robot-circle{
 
-margin-top:25px;
+width:90px;
+
+height:90px;
+
+margin:auto;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#7c3aed,
+
+#4f46e5
+
+);
+
+font-size:34px;
+
+color:white;
+
+margin-bottom:28px;
+
+box-shadow:
+
+0 15px 40px rgba(124,58,237,.35);
+
+}
+
+.empty-card h2{
+
+font-size:2rem;
+
+margin-bottom:15px;
+
+color:white;
+
+}
+
+.empty-card p{
+
+max-width:620px;
+
+margin:auto;
+
+color:#94a3b8;
+
+line-height:1.8;
+
+margin-bottom:35px;
+
+}
+
+.prompt-list{
 
 display:flex;
 
 justify-content:center;
 
-gap:12px;
-
 flex-wrap:wrap;
 
-font-weight:700;
+gap:14px;
 
-color:var(--primary);
+margin-bottom:40px;
+
+}
+
+.prompt-list span{
+
+padding:12px 18px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:#d6d6ff;
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+.prompt-list span:hover{
+
+background:rgba(124,58,237,.18);
+
+border-color:#7c3aed;
+
+transform:translateY(-3px);
+
+}
+
+.workflow-preview{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:18px;
+
+margin-top:20px;
+
+}
+
+.workflow-preview div{
+
+padding:20px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.08);
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:12px;
+
+color:white;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.workflow-preview div svg{
+
+font-size:24px;
+
+color:#8b5cf6;
+
+}
+
+.workflow-preview div:hover{
+
+background:rgba(124,58,237,.12);
+
+transform:translateY(-4px);
+
+}
+
+@media(max-width:900px){
+
+.workflow-preview{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.workflow-preview{
+
+grid-template-columns:1fr;
+
+}
 
 }

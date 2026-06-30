@@ -1,94 +1,92 @@
 import {
-FaBullseye,
-FaLayerGroup,
-FaBook,
-FaPalette,
-FaFileAlt
+  FaBullseye,
+  FaLayerGroup,
+  FaBook,
+  FaPalette,
+  FaFileAlt
 } from "react-icons/fa";
 
 import "../styles/Card.css";
 
-function format(text){
+function format(text) {
 
-return text
-.replaceAll("_"," ")
-.replace(/\b\w/g,c=>c.toUpperCase());
+  if (!text) return "-";
+
+  return text
+    .replaceAll("_", " ")
+    .replace(/\b\w/g, c => c.toUpperCase());
 
 }
 
-function StrategyCard({strategy}){
+function StrategyCard({ strategy }) {
 
-if(!strategy) return null;
+  if (!strategy) return null;
 
-return(
+  const items = [
+    {
+      icon: <FaFileAlt />,
+      title: "Topic",
+      value: strategy.topic
+    },
+    {
+      icon: <FaBullseye />,
+      title: "Goal",
+      value: strategy.goal
+    },
+    {
+      icon: <FaBook />,
+      title: "Pillar",
+      value: strategy.pillar
+    },
+    {
+      icon: <FaPalette />,
+      title: "Tone",
+      value: strategy.tone
+    },
+    {
+      icon: <FaLayerGroup />,
+      title: "Template",
+      value: strategy.template
+    }
+  ];
 
-<section className="card">
+  return (
 
-<h2>
+    <section className="card">
 
-<FaLayerGroup/>
+      <h2>
 
-Strategy Overview
+        <FaLayerGroup />
 
-</h2>
+        Strategy Overview
 
-<div className="strategy-grid">
+      </h2>
 
-<div>
+      <div className="strategy-grid">
 
-<FaFileAlt/>
+        {
 
-<strong>Topic</strong>
+          items.map((item,index)=>(
 
-<p>{format(strategy.topic)}</p>
+            <div key={index}>
 
-</div>
+              {item.icon}
 
-<div>
+              <strong>{item.title}</strong>
 
-<FaBullseye/>
+              <p>{format(item.value)}</p>
 
-<strong>Goal</strong>
+            </div>
 
-<p>{format(strategy.goal)}</p>
+          ))
 
-</div>
+        }
 
-<div>
+      </div>
 
-<FaBook/>
+    </section>
 
-<strong>Pillar</strong>
-
-<p>{format(strategy.pillar)}</p>
-
-</div>
-
-<div>
-
-<FaPalette/>
-
-<strong>Tone</strong>
-
-<p>{format(strategy.tone)}</p>
-
-</div>
-
-<div>
-
-<FaLayerGroup/>
-
-<strong>Template</strong>
-
-<p>{format(strategy.template)}</p>
-
-</div>
-
-</div>
-
-</section>
-
-);
+  );
 
 }
 
