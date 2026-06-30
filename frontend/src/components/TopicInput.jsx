@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/TopicInput.css";
 import { generateContent } from "../services/api";
 
 function TopicInput() {
@@ -15,25 +16,29 @@ function TopicInput() {
 
       console.log(result);
 
-      alert("Content Generated! Check the console.");
+      alert("Content generated successfully!");
     } catch (error) {
       console.error(error);
 
-      alert("Something went wrong.");
+      alert("Failed to generate content.");
     }
   }
 
   return (
-    <div>
+    <div className="topic-container">
       <input
+        className="topic-input"
         type="text"
-        placeholder="Enter Topic..."
+        placeholder="Enter any topic..."
         value={topic}
         onChange={(e) => setTopic(e.target.value)}
       />
 
-      <button onClick={handleGenerate}>
-        Generate Content
+      <button
+        className="generate-btn"
+        onClick={handleGenerate}
+      >
+        🚀 Generate
       </button>
     </div>
   );
