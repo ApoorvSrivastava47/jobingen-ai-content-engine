@@ -5,7 +5,7 @@ class BaseAIClient(ABC):
     """
     Base interface for every AI Provider.
 
-    Every provider (OpenAI, Gemini, Claude)
+    Every provider (OpenAI, Gemini, Claude , Groq, etc.) must implement this contract.
     must implement this contract.
     """
 

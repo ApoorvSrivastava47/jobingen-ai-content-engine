@@ -10,6 +10,7 @@ import ContentCard from "./components/ContentCard";
 import ReviewCard from "./components/ReviewCard";
 import Footer from "./components/Footer";
 import EmptyState from "./components/EmptyState";
+import ImageCard from "./components/ImageCard";
 
 import "./App.css";
 
@@ -49,11 +50,21 @@ function App() {
 
             </section>
 
+            <section className="image-section">
+
+              <ImageCard imagePath={result.image_path} />
+
+            </section>
+
+
             <section className="review-section">
 
               <ReviewCard review={result.review} />
-
+              
             </section>
+
+
+            
 
           </>
 

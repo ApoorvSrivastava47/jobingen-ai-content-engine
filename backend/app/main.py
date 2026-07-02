@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import router
 
@@ -16,6 +17,13 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+)
+
+# Serve generated images
+app.mount(
+    "/images",
+    StaticFiles(directory="outputs/images"),
+    name="images",
 )
 
 app.include_router(router)

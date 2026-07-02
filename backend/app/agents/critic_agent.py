@@ -9,6 +9,7 @@ class CriticAgent(BaseAgent):
     def review(
         self,
         content: str,
+        platform: str = "linkedin",
     ):
 
         system_prompt = self.loader.load_prompt(
@@ -19,6 +20,7 @@ class CriticAgent(BaseAgent):
             system_prompt=system_prompt,
             context={
                 "content": content,
+                "platform": platform,
             },
         )
 

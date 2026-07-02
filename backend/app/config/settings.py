@@ -23,7 +23,7 @@ class Settings:
 
     LLM_PROVIDER = os.getenv(
         "LLM_PROVIDER",
-        "ollama",
+        "groq",
     )
 
     # -------------------------
@@ -60,6 +60,32 @@ class Settings:
         "OPENAI_MODEL",
         "gpt-4.1",
     )
+
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+    GROQ_MODEL = os.getenv(
+        "GROQ_MODEL",
+        "llama-3.3-70b-versatile",
+    )
+    # -------------------------
+    # Image Generation
+    # -------------------------
+
+    IMAGE_PROVIDER = os.getenv(
+        "IMAGE_PROVIDER",
+        "huggingface",
+    )
+
+    HF_API_KEY = os.getenv(
+        "HF_API_KEY",
+    )
+
+    HF_MODEL = os.getenv(
+        "HF_MODEL",
+        "Qwen/Qwen-Image",
+    )
+
+    IMAGE_OUTPUT_DIR = OUTPUT_DIR / "images"
 
 
 settings = Settings()

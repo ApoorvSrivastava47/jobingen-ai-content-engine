@@ -1,12 +1,17 @@
-from ollama import chat
+from groq import Groq
 
 from app.clients.base_client import BaseAIClient
 from app.config.settings import settings
 
 
-class LlamaClient(BaseAIClient):
+class GroqClient(BaseAIClient):
     def __init__(self):
-        self.model = settings.OLLAMA_MODEL
+
+        self.client = Groq(
+            api_key=settings.GROQ_API_KEY,
+        )
+
+        self.model = settings.GROQ_MODEL
 
     def generate(
         self,
@@ -15,8 +20,9 @@ class LlamaClient(BaseAIClient):
         temperature: float = 0.7,
     ) -> str:
 
-        response = chat(
+        response = self.client.chat.completions.create(
             model=self.model,
+            temperature=temperature,
             messages=[
                 {
                     "role": "system",
@@ -29,4 +35,4 @@ class LlamaClient(BaseAIClient):
             ],
         )
 
-        return response["message"]["content"]
+        return response.choices[0].message.content.strip()

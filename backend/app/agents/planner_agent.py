@@ -9,6 +9,11 @@ class PlannerAgent:
     def plan(
         self,
         topic: str,
+        platform: str = "linkedin",
     ):
 
-        return self.strategy.build(topic)
+        strategy = self.strategy.build(topic)
+
+        strategy["platform"] = platform
+
+        return strategy

@@ -9,6 +9,7 @@ class Copywriter(BaseAgent):
     def write(
         self,
         strategy: dict,
+        platform: str = "linkedin",
         previous_content: str = None,
         feedback: str = None,
     ):
@@ -18,6 +19,8 @@ class Copywriter(BaseAgent):
         )
 
         context = strategy.copy()
+
+        context["platform"] = platform
 
         if previous_content:
             context["previous_content"] = previous_content

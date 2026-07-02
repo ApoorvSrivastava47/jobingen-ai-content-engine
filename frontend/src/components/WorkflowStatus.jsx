@@ -1,10 +1,10 @@
 import {
   FaCheckCircle,
-  FaArrowRight,
+  FaRobot,
   FaBrain,
+  FaImage,
   FaPenNib,
   FaSearch,
-  FaRocket
 } from "react-icons/fa";
 
 import "../styles/WorkflowStatus.css";
@@ -13,78 +13,80 @@ function WorkflowStatus({ result }) {
 
   if (!result) return null;
 
-  const workflow = [
+  const steps = [
+
     {
       icon: <FaBrain />,
-      title: "Planner",
-      desc: "Strategy Created"
+      title: "Planner Agent",
+      status: "Completed",
     },
+
     {
       icon: <FaPenNib />,
-      title: "Copywriter",
-      desc: "Draft Generated"
+      title: "Copywriter Agent",
+      status: "Completed",
     },
+
     {
       icon: <FaSearch />,
-      title: "Critic",
-      desc: "Quality Checked"
+      title: "Critic Agent",
+      status: "Completed",
     },
+
     {
-      icon: <FaRocket />,
-      title: "Publish",
-      desc: "Ready"
-    }
+      icon: <FaRobot />,
+      title: "Image Prompt Agent",
+      status: "Completed",
+    },
+
+    {
+      icon: <FaImage />,
+      title: "Image Generator",
+      status: "Completed",
+    },
+
   ];
 
   return (
 
-    <section className="workflow">
+    <section className="workflow-card">
 
-      <div className="workflow-header">
+      <h2>Workflow Status</h2>
 
-        <h2>⚙ AI Workflow</h2>
+      {
 
-        <span className="workflow-status">
+        steps.map((step) => (
 
-          <FaCheckCircle />
+          <div
+            className="workflow-item"
+            key={step.title}
+          >
 
-          Completed
+            <div className="workflow-left">
 
-        </span>
+              {step.icon}
 
-      </div>
+              <span>
 
-      <div className="workflow-grid">
+                {step.title}
 
-        {workflow.map((item, index) => (
-
-          <div className="step" key={index}>
-
-            <div className="step-icon">
-
-              {item.icon}
+              </span>
 
             </div>
 
-            <h3>{item.title}</h3>
+            <div className="workflow-right">
 
-            <p>{item.desc}</p>
+              <FaCheckCircle />
 
-            {index !== workflow.length - 1 && (
+              {step.status}
 
-              <div className="workflow-arrow">
-
-                <FaArrowRight />
-
-              </div>
-
-            )}
+            </div>
 
           </div>
 
-        ))}
+        ))
 
-      </div>
+      }
 
     </section>
 
