@@ -35,4 +35,4 @@ class GroqClient(BaseAIClient):
             ],
         )
 
-        return response.choices[0].message.content.strip()
+        return response.choices[0].message.content
